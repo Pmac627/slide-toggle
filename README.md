@@ -1,6 +1,9 @@
 ##Slide Toggle
 
-This is pure javascript widget which toggles the visibility of an element by animating the height of the element. The behaviour is similar to JQuery `slideToggle()` api. It animates the height using CSS Transitions and falls back to a javascript solution if transitions are not supported by the browser. 
+This is pure javascript widget which toggles the visibility of an element by animating the height of the element. The behaviour is similar to JQuery `slideToggle()` api. It animates the height using CSS Transitions and falls back to a javascript solution if transitions are not supported by the browser.
+
+####[Demo](https://c9.io/varun-dev/js/workspace/slide-toggle/index.html) page on cloud 9
+I am using jquery for adding click events on buttons and body as you will notice in index.html. As of now, the jquery minify library is added in the js folder as I am not able to figure out how to refer to external libraries on cloud 9 IDE.
 
 ###Dependencies:
 Its a pure javascript code and has no dependencies on any libraries or frameworks. You can learn a bit about animations here :)

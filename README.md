@@ -28,5 +28,6 @@ The SlideToggle constructor accepts two parameters.
   var layover2 = new SlideToggle('layover2',  {
                                                 jsOnly : true,
                                                 speed : 700
-                                              }
+                                              });
+  layover2.slideToggle();
 ```

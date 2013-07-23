@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>SlideToggle plugin</title>
+        <meta name="Description" content="">
+        <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    </head>
+    
+    <body>
+        <div class="container">
+            <header>
+                <h1>Slide Toggle widget</h1>
+            </header>
+            <section>
+                <div class='test'>
+                    <div class="description">
+                        <b>Demo 1</b>- This demo initializes the object without passing configuration
+                        settings.
+                        <code>var st1 = new SlideToggle('st1');</code>It uses CSS transitions to animate
+                        the overlay and fallsback to javascript based animation. Also please note
+                        that:
+                        <ul>
+                            <li>the overlay closes by clicking anywhere on the body outside of the overlay.</li>
+                            <li>pushes the content down</li>
+                        </ul>
+                    </div>
+                    <div class="button" id="button1">Click Me</div>
+                    <div class="clear"></div>
+                    <div class="overlay" id="st1" style="display:none;">
+                        <div class="overlay-content">
+                            <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+                                lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                                nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
+                            <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare
+                                odio. Sed non mauris vitae erat consequat auctor eu in elit. Sem nibh id
+                                elit.</p>
+                        </div>
+                    </div>
+                    <p>Content</p>
+                    <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+                        lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                        nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
+                    <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare
+                        odio. Sed non mauris vitae erat consequat auctor eu in elit. Sem nibh id
+                        elit.</p>
+                </div>
+                <div class='test'>
+                    <div class="description">
+                        <b>Demo 2</b>- This demo initializes the object by passing jsOnly configuration
+                        as true and speed as 900 milliseconds which overrides the default value of 400ms.
+                        <code>var st2 = new SlideToggle('st2', {jsOnly:true,speed:700});</code>Hence this overlay
+                        animation are done using the JS animation function and not transitions.</div>
+                    <div
+                    class="button" id="button2">Click Me</div>
+                <div class="clear"></div>
+                <div class="overlay" id="st2" style="display:none;position:absolute">
+                    <div class="overlay-content">
+                        <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+                            lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                            nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
+                        <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare
+                            odio. Sed non mauris vitae erat consequat auctor eu in elit. Sem nibh id
+                            elit.</p>
+                    </div>
+                </div>
+                <p>Content</p>
+                <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+                    lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                    nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
+                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare
+                    odio. Sed non mauris vitae erat consequat auctor eu in elit. Sem nibh id
+                    elit.</p>
+        </div>
+        </section>
+        </div>
+        <script src="js/jquery-1.10.0.min.js"></script>
+        <script src="js/slide-toggle.js"></script>
+        <script>
+            /* global jQuery SlideToggle  */
+
+             (function ($) {
+
+                var st1 = new SlideToggle('st1');
+                var st2 = new SlideToggle('st2', {
+                    jsOnly: true, speed: 700
+                });
+
+                $('#overlay1').on('click', function (e) {
+                    e.stopPropagation();
+                });
+
+                $(document).on('click', function (e) {
+                    if (e.target.id == 'button2') {
+                        st2.slideToggle();
+                    }
+                    else if (st1.visible() || e.target.id == 'button1') {
+                        st1.slideToggle();
+                    }
+
+                });
+            })(jQuery);
+        </script>
+    </body>
+
+</html>

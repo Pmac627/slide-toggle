@@ -154,8 +154,12 @@
             var el = this.el,
                 oldCssText = el.style.cssText,
                 w = el.parentNode.clientWidth;
+            /**
+             * 2/1/2014 - Pat MacMannis
+             * Added padding:0; to prevent 'el' padding from altering 'h'
+             */
             el.style.cssText = oldCssText + 
-                        'display:block;position:absolute;top:-999px;height:auto;width:' + w + 'px';
+                        'display:block;position:absolute;top:-999px;height:auto;width:' + w + 'px;padding:0;';
             var h = el.clientHeight;
             el.style.cssText = oldCssText;
             return h;
